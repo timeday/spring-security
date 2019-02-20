@@ -55,6 +55,7 @@ public class QQAutoConfig extends SocialAutoConfigurerAdapter {
 				connectionFactoryLocator, Encryptors.noOpText());
 		repository.setTablePrefix("spring_social_");
 		if(connectionSignUp != null) {
+			//自动跳过手动绑定和注册过程
 			repository.setConnectionSignUp(connectionSignUp);
 		}
 		return repository;
