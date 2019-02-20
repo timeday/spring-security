@@ -89,5 +89,12 @@ public class BrowserSecurityController extends SocialController {
 	}
 
 
+	@GetMapping("/session/invalid")
+	@ResponseStatus(code = HttpStatus.UNAUTHORIZED)
+	public SimpleResponse sessionStatus(){
+		return new SimpleResponse("session失效");
+	}
+
+
 
 }

@@ -82,6 +82,7 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
 				.userDetailsService(userDetailsService)
 				.and()
 				.sessionManagement()
+				//.invalidSessionUrl("/session/invalid")//session失效路径
 				.invalidSessionStrategy(invalidSessionStrategy)
 				.maximumSessions(securityProperties.getBrowser().getSession().getMaximumSessions())
 				.maxSessionsPreventsLogin(securityProperties.getBrowser().getSession().isMaxSessionsPreventsLogin())

@@ -31,6 +31,7 @@ public class QQAutoConfig extends SocialAutoConfigurerAdapter {
 	@Autowired
 	private DataSource dataSource;
 
+	//自动跳过手动绑定和注册过程
 	@Autowired(required = false)
 	private ConnectionSignUp connectionSignUp;
 

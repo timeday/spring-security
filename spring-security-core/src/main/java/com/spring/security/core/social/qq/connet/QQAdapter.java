@@ -23,7 +23,7 @@ public class QQAdapter implements ApiAdapter<QQ> {
 
 		values.setDisplayName(userInfo.getNickname());
 		values.setImageUrl(userInfo.getFigureurl_qq_1());
-		values.setProfileUrl(null);
+		values.setProfileUrl(null);//主页 QQ不存在主页
 		values.setProviderUserId(userInfo.getOpenId());
 	}
 

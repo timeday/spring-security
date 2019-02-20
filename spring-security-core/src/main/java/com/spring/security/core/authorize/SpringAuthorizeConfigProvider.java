@@ -32,7 +32,7 @@ public class SpringAuthorizeConfigProvider implements AuthorizeConfigProvider {
 				securityProperties.getBrowser().getSignInPage(),
 				securityProperties.getBrowser().getSignUpUrl(),
 				securityProperties.getBrowser().getSession().getSessionInvalidUrl(),
-				"/user/regist").permitAll();
+				"/user/regist","/session/invalid").permitAll();
 
 		if (StringUtils.isNotBlank(securityProperties.getBrowser().getSignOutUrl())) {
 			config.antMatchers(securityProperties.getBrowser().getSignOutUrl()).permitAll();

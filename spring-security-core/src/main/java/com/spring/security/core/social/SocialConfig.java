@@ -38,7 +38,7 @@ public class SocialConfig extends SocialConfigurerAdapter {
 	public SpringSocialConfigurer springSocialConfigurer() {
 		String filterProcessesUrl = securityProperties.getSocial().getFilterProcessesUrl();
 		MySpringSocialConfigurer configurer = new MySpringSocialConfigurer(filterProcessesUrl);
-		configurer.signupUrl(securityProperties.getBrowser().getSignUpUrl());
+		configurer.signupUrl(securityProperties.getBrowser().getSignUpUrl());//注冊路徑
 		configurer.setSocialAuthenticationFilterPostProcessor(socialAuthenticationFilterPostProcessor);
 		return configurer;
 	}
