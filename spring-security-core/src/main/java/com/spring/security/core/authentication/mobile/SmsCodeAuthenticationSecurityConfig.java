@@ -34,7 +34,7 @@ public class SmsCodeAuthenticationSecurityConfig extends SecurityConfigurerAdapt
 	@Autowired
 	private UserDetailsService userDetailsService;
 
-	@Autowired
+	@Autowired(required = false)
 	private PersistentTokenRepository persistentTokenRepository;
 
 	/* (non-Javadoc)
@@ -49,9 +49,11 @@ public class SmsCodeAuthenticationSecurityConfig extends SecurityConfigurerAdapt
 		//认证处理器
 		smsCodeAuthenticationFilter.setAuthenticationSuccessHandler(authenticationSuccessHandler);
 		smsCodeAuthenticationFilter.setAuthenticationFailureHandler(authenticationFailureHandler);
-		//记住我
-		String key = UUID.randomUUID().toString();
-		smsCodeAuthenticationFilter.setRememberMeServices(new PersistentTokenBasedRememberMeServices(key, userDetailsService, persistentTokenRepository));
+		if(persistentTokenRepository!=null){
+			//记住我
+			String key = UUID.randomUUID().toString();
+			smsCodeAuthenticationFilter.setRememberMeServices(new PersistentTokenBasedRememberMeServices(key, userDetailsService, persistentTokenRepository));
+		}
         //认证提供者
 		SmsCodeAuthenticationProvider smsCodeAuthenticationProvider = new SmsCodeAuthenticationProvider();
 		smsCodeAuthenticationProvider.setUserDetailsService(userDetailsService);
